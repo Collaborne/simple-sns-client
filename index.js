@@ -7,6 +7,9 @@ module.exports = class SNSClient {
 
 	constructor(sns) {
 		this.sns = sns;
+
+		/** Caches the ARNs of known topics */
+		this.topicArns = {};
 	}
 
 	/**
@@ -18,6 +21,16 @@ module.exports = class SNSClient {
 	createTopic(topic) {
 		return this.sns.createTopic({ Name: topic }).promise()
 			.then(res => res.TopicArn);
+	}
+
+	/**
+	 * Returns the ARN of formerly created SNS topics. If the ARN is unknown, it is created in SNS.
+	 * 
+	 * @param {String} topic SNS topic for which the ARN is requested
+	 */
+	getTopicArn(topic) {
+		const topicArn = this.topicArns[topic];
+		return topicArn ? Promise.resolve(topicArn) : this.createTopic(topic);
 	}
 
 	/**

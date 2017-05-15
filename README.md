@@ -5,6 +5,7 @@ Helper client to simplify access to AWS SNS (NodeJS)
 
 ```javascript
 const AWS = require('aws-sdk');
+const SNSClient = require('simple-sns-client');
 
 const sns = new AWS.SNS();
 const snsClient = new SNSClient(sns);
