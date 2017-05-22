@@ -42,10 +42,7 @@ module.exports = class SNSClient {
 	 */
 	publish(topicArn, msg) {
 		const params = {
-			Message: JSON.stringify({
-				default: JSON.stringify(msg)
-			}),
-			MessageStructure: 'json',
+			Message: JSON.stringify(msg),
 			TopicArn: topicArn,
 		};
 
