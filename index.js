@@ -20,7 +20,10 @@ module.exports = class SNSClient {
 	 */
 	createTopic(topic) {
 		return this.sns.createTopic({ Name: topic }).promise()
-			.then(res => res.TopicArn);
+			.then(res => res.TopicArn)
+			.catch(e => {
+				Promise.reject(new Error(`Failed to create SNS topic: ${e.message}`));
+			});
 	}
 
 	/**
@@ -46,7 +49,9 @@ module.exports = class SNSClient {
 			TopicArn: topicArn,
 		};
 
-		return this.sns.publish(params).promise();
+		return this.sns.publish(params).promise()
+		.catch(e => {
+			Promise.reject(new Error(`Failed to publish to SNS: ${e.message}`));
+		});
 	}
-
 }
