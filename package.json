@@ -1,6 +1,6 @@
 {
   "name": "simple-sns-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Helper client to simplify access to AWS SNS (NodeJS)",
   "main": "index.js",
   "scripts": {
