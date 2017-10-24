@@ -1,1 +1,5 @@
 /node_modules/
+
+*.rej
+*.orig
+*.porig
