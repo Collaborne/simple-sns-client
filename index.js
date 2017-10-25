@@ -3,7 +3,7 @@
 /**
  * Helper client to simplify access to SNS
  */
-module.exports = class SNSClient {
+class SNSClient {
 
 	constructor(sns) {
 		this.sns = sns;
@@ -55,3 +55,5 @@ module.exports = class SNSClient {
 		});
 	}
 }
+
+module.exports = SNSClient;
