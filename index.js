@@ -17,7 +17,7 @@ class SNSClient {
 
 	/**
 	 * Creates a topic in SNS and return the ARN. This method returns the ARN of any existing topic with the same name.
-	 * 
+	 *
 	 * @param {String} topic Name of the topic that should be created
 	 * @return {Promise<String>} ARN of the new topic
 	 */
@@ -31,7 +31,7 @@ class SNSClient {
 
 	/**
 	 * Returns the ARN of formerly created SNS topics. If the ARN is unknown, it is created in SNS.
-	 * 
+	 *
 	 * @param {String} topic SNS topic for which the ARN is requested
 	 * @return {Promise<String>} ARN of the topic
 	 */
@@ -42,8 +42,8 @@ class SNSClient {
 
 	/**
 	 * Publishes a message to SNS
-	 * 
-	 * @param {String} topicArn	ARN of the topic to whicht message should be published 
+	 *
+	 * @param {String} topicArn	ARN of the topic to whicht message should be published
 	 * @param {Object} msg message to publish
 	 * @returns {Promise<any>} result of the publish operation
 	 */
